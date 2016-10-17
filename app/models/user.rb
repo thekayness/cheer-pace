@@ -20,4 +20,5 @@ class User < ApplicationRecord
   	my_cheers.flatten
   end
 
+
 end

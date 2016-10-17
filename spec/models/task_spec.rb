@@ -20,10 +20,5 @@ RSpec.describe Task, type: :model do
   it "knows when it is overdue" do
     expect(Task.overdue).to include(@overdue_task)
   end
-
-  it "knows when a goal date is past but completed" do
-    completed_task = @course.tasks.create(goal_date: Date.yesterday, status: "completed")
-    expect(Task.overdue).to_not include(completed_task)
-  end
   
 end

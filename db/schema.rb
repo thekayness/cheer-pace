@@ -34,11 +34,10 @@ ActiveRecord::Schema.define(version: 20161016143652) do
   create_table "tasks", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
-    t.string   "status",      default: "incomplete"
     t.date     "goal_date"
     t.integer  "course_id"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["course_id"], name: "index_tasks_on_course_id"
   end
 

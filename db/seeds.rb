@@ -18,3 +18,6 @@ Task.create(course_id: web_course.id, title: "Finish JavaScript", description: "
 Cheer.create(user_id: dax.id, course_id: pi_course.id, content: "Keep up the good work! I know you can finish.")
 Cheer.create(user_id: jax.id, course_id: web_course.id, content: "Noticed you've got a goal date coming up this week, You can do it!")
 Cheer.create(user_id: kay.id, course_id: web_course.id, content: "Don't get discouraged, you're almost there!!!")
+
+java_course = Course.create(user_id: kay.id, course_title: "Intro to Java", topic: "Java")
+Task.create(course_id: java_course.id, title: "Install Eclipse", description: "Get text editor Eclipse installed", goal_date: Date.today.next_month)

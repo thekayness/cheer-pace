@@ -1,0 +1,29 @@
+
+  <div id="main">
+    <div id="banner">
+      <img src="images/pic01.jpg" alt="" class="image-full" />
+    </div>
+
+    <div id="welcome">
+      
+      <div class="title">
+        <h2>Who's learning:</h2>
+        <span class="byline">Here's everyone's courses, the ones at the top haven't had any updates in a while.  Maybe they could use your encouragement?</span>
+      </div>
+    </div>
+    
+    <div id="featured">
+      <ul class="style1">
+      <%@courses.each do |course|%>
+        <li class="first">
+          <p class="date"><b><%=course.course_title%></b></p>
+          <h3>Task: <%=course.last_task_updated.title%></h3>
+          <p>Task Description:<%=course.last_task_updated.description%></p>
+          <p>Task Goal Date:<%=course.last_task_updated.goal_date%></p>
+        </li>
+      <%end%>
+
+      </ul>
+    </div>
+        
+  </div>

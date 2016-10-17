@@ -4,7 +4,7 @@ class CreateCourses < ActiveRecord::Migration[5.0]
       t.belongs_to :user, index: true
       t.string :course_title
       t.string :topic
-
+      
       t.timestamps
     end
   end
