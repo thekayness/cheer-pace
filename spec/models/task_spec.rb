@@ -1,20 +1,29 @@
 require 'rails_helper'
+require 'pry'
 
 RSpec.describe Task, type: :model do
 	 before(:each) do
-    	@task = Task.first
-    	@class = MyClass.first
-    	@task.user = @class
+    @user = User.create(first_name: "Andrew", email: "andrew.dasilva@lol.com", password: "probablyBatman", password_confirmation: "probablyBatman")
+    @course = Course.create(user_id: @user.id, course_title: "How to cook spaghetti", topic: "Cooking")
+    @some_task = Task.create(course_id: @course.id, title: "Make Sauce", description: "gather ingredients for pasta sauce", goal_date: Date.tomorrow)
+    @overdue_task = @course.tasks.create(goal_date: Date.yesterday)
   end
 
   it "belongs to one class" do
-    expect(@task.my_class).to eq(@class)
+    expect(@some_task.course).to eq(@course)
   end
 
-  it "is valid with a title, description, status, and deadline" do
-    expect(@class).to be_valid
+  it "is valid with a title, description, status, and goal date" do
+    expect(@some_task).to be_valid
   end
 
+  it "knows when it is overdue" do
+    expect(Task.overdue).to include(@overdue_task)
+  end
 
+  it "knows when a goal date is past but completed" do
+    completed_task = @course.tasks.create(goal_date: Date.yesterday, status: "completed")
+    expect(Task.overdue).to_not include(completed_task)
+  end
   
 end
