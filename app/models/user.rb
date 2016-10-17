@@ -6,14 +6,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :validatable
 
-  has_many :my_classes
-  has_many :tasks, through: :my_classes
+  has_many :courses
+  has_many :tasks, through: :courses
   has_many :cheers
 
-  def people_cheered
-  	people = self.cheers.collect {|cheer| cheer.my_class.user}
+  def my_people_cheered
+  	people = self.cheers.collect {|cheer| cheer.course.user}
   	people.flatten
   end
 
+  def my_cheers_received
+  	my_cheers = self.courses.collect{|course| course.cheers }
+  	my_cheers.flatten
+  end
 
 end

@@ -1,6 +1,6 @@
-class CreateMyClasses < ActiveRecord::Migration[5.0]
+class CreateCourses < ActiveRecord::Migration[5.0]
   def change
-    create_table :my_classes do |t|
+    create_table :courses do |t|
       t.belongs_to :user, index: true
       t.string :course_title
       t.string :topic

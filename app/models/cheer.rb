@@ -1,4 +1,4 @@
 class Cheer < ApplicationRecord
 	belongs_to :user
-	belogngs_to :class
+	belongs_to :course
 end

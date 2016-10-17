@@ -1,4 +1,4 @@
 class Task < ApplicationRecord
-	belongs_to :my_class
-	scope :overdue_tasks, -> lambda { where("deadline" < ?", Date.today) }
+	belongs_to :course
+	scope :overdue, lambda { where('goal_date >= ?', Date.today) }
 end
