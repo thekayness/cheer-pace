@@ -1,0 +1,26 @@
+<h2>Edit Tasks for <%=@course.course_title%></h2>
+
+<%= form_for(@course) do |f| %>
+  
+ 
+ <%=f.fields_for :tasks do |t|%>
+ 	<%=t.label :title%>
+ 	<%=t.text_field :title%>
+<br>
+<br>
+<br>
+ 	<%=t.label :description%>
+ 	<%=t.text_area :description%>
+<br>
+<br>
+<br>
+ 	<%=t.label :goal_date%>
+ 	<%=t.text_field :goal_date%>
+ 	<br>
+ 	<br>
+ 	<br>
+ 	<%end%>
+ 	<br>
+ 	<br>
+  <%= f.submit %>
+<% end %>

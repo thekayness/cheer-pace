@@ -1,8 +1,6 @@
 
   <div id="main">
-    <div id="banner">
-      <img src="images/pic01.jpg" alt="" class="image-full" />
-    </div>
+
 
     <div id="welcome">
       
@@ -16,11 +14,16 @@
       <ul class="style1">
       <%@courses.each do |course|%>
         <li class="first">
-          <p class="date"><b><%=course.course_title%></b></p>
-          <h3>Task: <%=course.last_task_updated.title%></h3>
-          <p>Task Description:<%=course.last_task_updated.description%></p>
-          <p>Task Goal Date:<%=course.last_task_updated.goal_date%></p>
+          <h3 class="date"><b><%=course.user.username%></b> is working on <b><%=course.course_title%></b></h3>
+          <%if course.tasks%>
+            <h4>Task: <%=course.oldest_task.title%></h4>
+            <p>Task Description:<%=course.oldest_task.description%></p>
+            <p>Task Goal Date:<%=course.oldest_task.goal_date%></p>
+          <%end%>
         </li>
+        <%if user_signed_in?%>
+          <%=link_to "Cheer on #{course.user.username} for this course!", course_path(course.id)%>
+        <%end%>
       <%end%>
 
       </ul>

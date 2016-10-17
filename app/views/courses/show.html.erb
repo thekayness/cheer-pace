@@ -1,0 +1,12 @@
+<h1>Give <%=@course.user.username%> a boost, cheer them on!</h1>
+<h2><%=@course.course_title%></h2>
+<h3><%=@course.oldest_task.title%></h3>
+
+
+<%=form_for(@course) do |f|%>
+	<%=f.fields_for :cheers, @cheer do |c|%>
+		<%=c.text_field :content%>
+		<%=c.hidden_field :user_id, value: @cheerleader.id%>
+	<%end%>
+	<%=f.submit "Leave some reassurance!"%>
+<%end%>

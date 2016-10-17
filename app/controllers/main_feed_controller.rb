@@ -1,5 +1,5 @@
 class MainFeedController < ApplicationController
 	def index
-		@courses = Course.order_by_inactivity
+		@courses = Course.all
 	end
 end

@@ -1,7 +1,7 @@
 #create some users
-dax = User.create(first_name: "Dax", email: "Dax.charles@whatever.com", password: "99problems", password_confirmation: "99problems")
-jax = User.create(first_name: "Jax", email: "SkaiJackson@doodle.com", password: "98problems", password_confirmation: "98problems")
-kay = User.create(first_name: "Kay", email: "kaleisgreat@doodle.com", password: "207problems", password_confirmation: "207problems")
+dax = User.create(username: "Dax", email: "Dax.charles@whatever.com", password: "99problems", password_confirmation: "99problems")
+jax = User.create(username: "Jax", email: "SkaiJackson@doodle.com", password: "98problems", password_confirmation: "98problems")
+kay = User.create(username: "Kay", email: "kaleisgreat@doodle.com", password: "207problems", password_confirmation: "207problems")
 
 #create some courses
 pi_course = Course.create(user_id: dax.id, course_title: "Raspberry Pi: Full Stack", topic: "IoT")
