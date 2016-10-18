@@ -14,14 +14,19 @@
       <ul class="style1">
       <%@courses.each do |course|%>
         <li class="first">
-          <h3 class="date"><b><%=course.user.username%></b> is working on <b><%=course.course_title%></b></h3>
+        <%if user_signed_in? && course.user != current_user  || !user_signed_in?%>
+          <h3><b><%=course.user.username%></b> is working on <b><%=course.course_title%></b></h3>
+          <%else%>
+          <h3 ><b>You are working on <b><%=course.course_title%></b></h3>
+        <%end%>
+          
           <%if course.tasks%>
             <h4>Task: <%=course.oldest_task.title%></h4>
             <p>Task Description:<%=course.oldest_task.description%></p>
             <p>Task Goal Date:<%=course.oldest_task.goal_date%></p>
           <%end%>
         </li>
-        <%if user_signed_in?%>
+        <%if user_signed_in? && course.user != current_user%>
           <%=link_to "Cheer on #{course.user.username} for this course!", course_path(course.id)%>
         <%end%>
       <%end%>

@@ -1,5 +1,6 @@
 require 'pry'
 class CoursesController < ApplicationController
+
 	def index
 		@courses = current_user.courses
 	end
@@ -19,6 +20,9 @@ class CoursesController < ApplicationController
 
 	def edit
       	@course = Course.find(params[:id])
+      	if @course.tasks.count <= 1
+      		@course.tasks.build()
+      	end
       	redirect_to main_path, alert: "Course not found." if @course.nil?
 	end
 
@@ -44,6 +48,6 @@ class CoursesController < ApplicationController
 	end
 
 	def course_params
-  		params.require(:course).permit(:id, :course_title, :topic, :user_id, tasks_attributes: [:id, :course_id, :title, :description, :goal_date], cheers_attributes: [:id, :course_id, :user_id, :content])
+  		params.require(:course).permit(:id, :course_title, :topic, :user_id, tasks_attributes: [:id, :course_id, :title, :description, :goal_date, :_destroy], cheers_attributes: [:id, :course_id, :user_id, :content])
 	end
 end

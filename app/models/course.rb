@@ -5,11 +5,13 @@ class Course < ApplicationRecord
 
 	after_create :build_empty_task
 
-	accepts_nested_attributes_for :tasks
+	accepts_nested_attributes_for :tasks, :allow_destroy => true
 	accepts_nested_attributes_for :cheers, limit: 1
 
 	def build_empty_task
-		self.tasks.create(title: "Task title goes here", description: "Task description goes here", goal_date: Date.today.next_month)
+		if self.tasks.empty?
+			self.tasks.create(title: "Task title goes here", description: "Task description goes here", goal_date: Date.today.next_month)
+		end
 	end
 
 	def self.order_by_inactivity
