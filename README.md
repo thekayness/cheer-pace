@@ -42,11 +42,8 @@ If you'd like to take some tests for a spin, you can run the rspec tests in the 
 ```sh
 rspec spec
 ```
+## Contributions
 
-## Release History
-
-* 0.1.0
-    * The first proper release
-
+You can find plans for future features in TODO.md.  Contributions are very welcome!
 
 Distributed under the https://opensource.org/licenses/MIT license. Feel free to help yourself, tweet me what you think at @kayjsmyth.
