@@ -29,16 +29,9 @@ and finally launch the rails server with:
 ```sh
 rails s
 ```	
-Check it out and tell me what you think at 
-
-
-
-## Usage example
-
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
 
 ## Development setup
-if you want to test things out, you can run the tests in the spec folder
+If you'd like to take some tests for a spin, you can run the rspec tests in the spec folder
 
 ```sh
 rspec spec
@@ -46,18 +39,8 @@ rspec spec
 
 ## Release History
 
-* 0.2.1
-    * CHANGE: Update docs (module code remains unchanged)
-* 0.2.0
-    * CHANGE: Remove `setDefaultXYZ()`
-    * ADD: Add `init()`
-* 0.1.1
-    * FIX: Crash when calling `baz()` (Thanks @GenerousContributorName!)
 * 0.1.0
     * The first proper release
-    * CHANGE: Rename `foo()` to `bar()`
-* 0.0.1
-    * Work in progress
 
 
-Distributed under the XYZ license. Help yourself to this code, see ``LICENSE`` for more information.
+Distributed under the https://opensource.org/licenses/MIT license. Feel free to help yourself, tweet me what you think at @kayjsmyth.
