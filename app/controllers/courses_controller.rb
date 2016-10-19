@@ -21,7 +21,7 @@ class CoursesController < ApplicationController
 	def edit
       	@course = Course.find(params[:id])
       	if @course.tasks.count <= 1
-      		@course.tasks.build()
+      		@course.tasks.create()
       	end
       	redirect_to main_path, alert: "Course not found." if @course.nil?
 	end

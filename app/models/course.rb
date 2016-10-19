@@ -5,6 +5,8 @@ class Course < ApplicationRecord
 
 	after_create :build_empty_task
 
+	validates :course_title, :topic, presence: true
+
 	accepts_nested_attributes_for :tasks, :allow_destroy => true
 	accepts_nested_attributes_for :cheers, limit: 1
 
