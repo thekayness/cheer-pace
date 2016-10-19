@@ -31,6 +31,12 @@ rails s
 ```	
 
 ## Development setup
+This app uses OAuth with the Devise gem for logging in via github, and requires an app id and app secret. If you register your own app with Github, you can configure your app id and app secret in the 
+```sh
+config/initializations/devise.rb
+```	
+file.
+
 If you'd like to take some tests for a spin, you can run the rspec tests in the spec folder
 
 ```sh
