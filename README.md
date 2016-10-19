@@ -1,7 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+CheerPace!
+
+Self-paced courses are hard to stay motivated in, let's change this by cheering each other on!  CheerPace is meant to be a place where we can (gently) hold each other accountable for finishing that awesome online course we still haven't finished. Users can:
+	-enter a course
+	-enter/update tasks associated with a course
+	-offer others encouragement with their courses
 
 Things you may want to cover:
 
