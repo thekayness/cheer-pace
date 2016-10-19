@@ -1,0 +1,14 @@
+<%@course.tasks.each do |task|%>
+    <li class="first">
+        <h4>Task: <%=task.title%></h4>
+        <p>Task Description:<%=task.description%></p>
+        <p>Task Goal Date:<%=task.goal_date%></p>
+  <%end%>
+      <%= form_tag("/courses/#{course.id}/edit", method: "get") do %>
+      <label>How many tasks do you need to create?</label>
+        <%=number_field_tag 'new_tasks', max: 15%>
+        <%= submit_tag("Create Tasks for this Course") %>
+      <%end%>
+      <%= link_to "Update tasks for this course", edit_course_path(course)%>
+    </li>
+      <% end %>
