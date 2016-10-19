@@ -3,6 +3,17 @@
         <h4>Task: <%=task.title%></h4>
         <p>Task Description:<%=task.description%></p>
         <p>Task Goal Date:<%=task.goal_date%></p>
+        <%= form_for(@course) do |f| %>
+ <%=f.fields_for :tasks do |t|%>
+  <%=t.label "Mark Task Complete"%>
+  <%= t.check_box '_destroy' %>
+  <br>
+  <br>
+  <%end%>
+  <br>
+  <br>
+  <%= f.submit %>
+<% end %>
   <%end%>
       <%= form_tag("/courses/#{course.id}/edit", method: "get") do %>
       <label>How many tasks do you need to create?</label>
