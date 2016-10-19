@@ -6,9 +6,22 @@ class Course < ApplicationRecord
 	after_create :build_empty_task
 
 	validates :course_title, :topic, presence: true
+	validates_associated :cheers
 
 	accepts_nested_attributes_for :tasks, :allow_destroy => true
-	accepts_nested_attributes_for :cheers, limit: 1
+	# accepts_nested_attributes_for :cheers, limit: 1
+	
+
+	def cheers_attributes=(attributes)
+		attributes.each do |i, cheers_params|
+			cheer = self.cheers.new
+			cheers_params.each do |cheer_attribute, attribute_value|
+        		cheer.send("#{cheer_attribute}=", attribute_value)
+      		end
+
+		end
+	end
+
 
 	def build_empty_task
 		if self.tasks.empty?

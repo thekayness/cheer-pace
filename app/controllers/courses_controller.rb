@@ -20,6 +20,10 @@ class CoursesController < ApplicationController
 
 	def edit
       	@course = Course.find(params[:id])
+      	num_new_tasks = params[:new_tasks].to_i
+      	if num_new_tasks > 0
+      		num_new_tasks.times {|task| @course.tasks.create}
+      	end
       	if @course.tasks.count <= 1
       		@course.tasks.create()
       	end
