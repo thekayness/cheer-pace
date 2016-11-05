@@ -4,8 +4,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
   #not planning on using these this time :trackable, :rememberable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :validatable, :omniauthable, :omniauth_providers => [:github]
+  devise :database_authenticatable, :registerable, :validatable, :omniauthable, :omniauth_providers => [:github]
 
   has_many :courses
   has_many :tasks, through: :courses
