@@ -3,6 +3,7 @@ class CoursesController < ApplicationController
 
 	def index
 		@courses = current_user.courses
+
 	end
 
 	def new
@@ -24,9 +25,6 @@ class CoursesController < ApplicationController
       	if num_new_tasks > 0
       		num_new_tasks.times {|task| @course.tasks.create}
       	end
-      	if @course.tasks.count <= 1
-      		@course.tasks.create()
-      	end
       	redirect_to root_path, alert: "Course not found." if @course.nil?
 	end
 
@@ -37,8 +35,6 @@ class CoursesController < ApplicationController
 		
 		if @course.save && params[:course][:tasks_attributes]
 			redirect_to courses_path
-		elsif @course.save && params[:course][:cheers_attributes]
-			redirect_to root_path, alert: "Thanks for spreading the good vibes!"
 		else
 			redirect_to new_course_path, alert: "Something went wrong saving this course"
 		end

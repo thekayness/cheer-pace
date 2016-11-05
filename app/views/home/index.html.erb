@@ -1,4 +1,20 @@
 
+ <% if @cheer.errors.any? %>
+   <div id="error_explanation">
+    <h2>
+      <%= pluralize(@cheer.errors.count, "error") %>
+       prohibited this course from being saved:
+     </h2>
+ 
+     <ul>
+     <% @cheer.errors.full_messages.each do |msg| %>
+       <li><%= msg %></li>
+     <% end %>
+     </ul>
+   </div>
+ <% end %>
+
+
   <div id="main">
 
 
@@ -26,9 +42,16 @@
             <p>Task Goal Date:<%=course.oldest_task.goal_date%></p>
           <%end%>
         </li>
+
         <%if user_signed_in? && course.user != current_user%>
-          <%=link_to "Cheer on #{course.user.username} for this course!", course_path(course.id)%>
+          <%=form_for(@cheer) do |f|%>
+              <%=f.text_field :content%>
+              <%=f.hidden_field :course_id, value: course.id%>
+              <%=f.hidden_field :user_id, value: current_user.id%>
+             <%=f.submit "Leave some reassurance!"%>
+          <%end%>
         <%end%>
+      
       <%end%>
 
       </ul>
