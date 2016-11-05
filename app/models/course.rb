@@ -3,7 +3,7 @@ class Course < ApplicationRecord
 	has_many :tasks
 	has_many :cheers
 
-	after_create :build_empty_task
+	# after_create :build_empty_task
 
 	validates :course_title, :topic, presence: true
 	validates_associated :cheers
@@ -23,11 +23,11 @@ class Course < ApplicationRecord
 	end
 
 
-	def build_empty_task
-		if self.tasks.empty?
-			self.tasks.create(title: "Task title goes here", description: "Task description goes here", goal_date: Date.today.next_month)
-		end
-	end
+	# def build_empty_task
+	# 	if self.tasks.empty?
+	# 		self.tasks.create(title: "Task title goes here", description: "Task description goes here", goal_date: Date.today.next_month)
+	# 	end
+	# end
 
 	def self.order_by_inactivity
 		self.all.sort_by { |c| c.oldest_task }

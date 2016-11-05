@@ -21,3 +21,12 @@ Cheer.create(user_id: kay.id, course_id: web_course.id, content: "Don't get disc
 
 java_course = Course.create(user_id: kay.id, course_title: "Intro to Java", topic: "Java")
 Task.create(course_id: java_course.id, title: "Install Eclipse", description: "Get text editor Eclipse installed", goal_date: Date.today.next_month)
+java_course.save
+
+pi_course.save
+hack_course.save
+web_course.save
+
+kay.save
+dax.save
+jax.save

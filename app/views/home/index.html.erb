@@ -20,7 +20,7 @@
           <h3 ><b>You are working on <b><%=course.course_title%></b></h3>
         <%end%>
           
-          <%if course.tasks%>
+          <%if !course.tasks.nil? %>
             <h4>Task: <%=course.oldest_task.title%></h4>
             <p>Task Description:<%=course.oldest_task.description%></p>
             <p>Task Goal Date:<%=course.oldest_task.goal_date%></p>

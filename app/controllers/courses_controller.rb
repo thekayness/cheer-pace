@@ -14,7 +14,7 @@ class CoursesController < ApplicationController
 		if @course.save
 			redirect_to courses_path
 		else
-			redirect_to main_path, alert: "Something went wrong saving this course"
+			redirect_to root_path, alert: "Something went wrong saving this course"
 		end
 	end
 
@@ -27,7 +27,7 @@ class CoursesController < ApplicationController
       	if @course.tasks.count <= 1
       		@course.tasks.create()
       	end
-      	redirect_to main_path, alert: "Course not found." if @course.nil?
+      	redirect_to root_path, alert: "Course not found." if @course.nil?
 	end
 
 	def update
@@ -38,7 +38,7 @@ class CoursesController < ApplicationController
 		if @course.save && params[:course][:tasks_attributes]
 			redirect_to courses_path
 		elsif @course.save && params[:course][:cheers_attributes]
-			redirect_to main_path, alert: "Thanks for spreading the good vibes!"
+			redirect_to root_path, alert: "Thanks for spreading the good vibes!"
 		else
 			redirect_to new_course_path, alert: "Something went wrong saving this course"
 		end
