@@ -46,8 +46,6 @@ class CoursesController < ApplicationController
 
 	def show
 		@course = Course.find(params[:id])
-		@cheer = @course.cheers.build()
-		@cheerleader = current_user
 		
 	end
 

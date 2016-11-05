@@ -10,7 +10,7 @@
             <p>Task Description:<%=task.description%></p>
             <p>Task Goal Date:<%=task.goal_date%></p>
           <%end%>
-          <%=link_to "Go to this course", course_tasks_path(course)%>
+          <%=link_to "Edit this course", edit_course_path(course)%>
         </li>
           <% unless course.cheers.blank? %>
             <li><%= course.cheers.count%> people are cheering you on!</li><br />
