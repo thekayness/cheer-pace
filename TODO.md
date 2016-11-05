@@ -1,7 +1,7 @@
 #App Goals
 
 Progress Feature
-	[ ] landing page for a course to show tasks
+	[x] landing page for a course to show tasks
 	[ ] be able to mark complete, course tracks tasks completed
 	[ ] show course progress
 
